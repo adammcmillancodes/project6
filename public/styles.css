@@ -1,0 +1,249 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+body{
+	background-color: rgb(112,128,144);
+	letter-spacing: 1.8px;
+}
+
+.header {
+	padding: 0 100px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: black;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+	color: white;
+
+}
+
+.header h1 {
+	font-weight: 100;
+}
+
+.header a {
+	margin: 0 10px;
+	color: white;
+	text-decoration: none;
+	font-weight: 300;
+}
+
+h2 {
+	text-align: c
+}
+
+
+.sidebar {
+	width: 400px;
+	position: absolute;
+	top: 0;
+	left: -400px;
+	background: rgb(105,105,105);
+	transition: all 0.5s ease;
+	padding: 0 15px;
+	color: white;
+	border-radius: 15px;
+	box-shadow: 3px 3px 3px black;
+	z-index: 999;
+}
+
+.sidebar.show {
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.sidebar h3 {
+	font-weight: 100;
+}
+
+.sidebar input,
+.sidebar textarea {
+	width: 100%;
+	margin-bottom: 25px;
+	background: rgb(105,105,105);
+	border: none;
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+.sidebar textarea {
+	height: 200px;
+	border-right: 1px solid black;
+}
+
+.sidebar input[type=submit] {
+	border: 1px solid black;
+	color: white;
+	background-color: rgb(105,105,105);
+}
+
+.sidebar .close-btn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	padding: 10px;
+	background-color: rgb(105,105,105);
+}
+
+.close-btn:hover {
+	font-size: 1.4rem;
+	border: 1px solid white;
+	box-shadow: 1px 1px 1px black;
+}
+
+.taskWrapper {
+	padding: 0 50px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/*.notes {
+	padding: 0 50px;
+	display: flex;
+	flex-wrap: wrap;
+}*/
+
+.noteCard {
+	background: rgb(105,105,105);
+	color: white;
+	box-shadow: 8px 9px 3px 2px rgba(0, 0, 0, 0.5);
+	margin: 15px;
+	padding: 40px 20px;
+	position: relative;
+	width: 30%;
+	border-radius: 15px;
+	font-weight: 100;
+}
+
+.noteCard h4 {
+	margin-top: 0;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 100;
+    text-transform: capitalize;
+}
+
+.noteCard h4:after {
+	width: 60px;
+	height: 2px;
+	background: #182020;
+	display: block;
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	content: "";
+}
+
+.noteCard input,
+.noteCard textarea {
+	border: none;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	margin-bottom: 10px;
+	width: 100%;
+	background: rgb(105,105,105);
+}
+
+.noteCard .fa-times,
+.noteCard .fa-edit {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 5;
+}
+.noteCard .fa:hover {
+	cursor: pointer;
+}
+
+.noteCard .fa-edit {
+	right: 50px;
+}
+
+.noteCard input[type=submit] {
+	width: auto;
+	border: 2px solid #182020;
+	color: #182020;
+	background: transparent;
+}
+
+.modal,
+.overlay {
+	visibility: hidden;
+	opacity: 0;
+	z-index: 10;
+	transition: all 0.3s ease;
+	position: absolute;
+}
+
+.modal.show,
+.overlay.show {
+	visibility: visible;
+	opacity: 1;
+}
+
+.modal {
+	width: 400px;
+	background: white;
+	border: 10px solid rgba(255,255,255,0.5);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	border-radius: 5px;
+	box-shadow: 0 0 35px rgba(0,0,0,0.2);
+}
+
+.modal div {
+	margin: 15px;
+}
+.modal label {
+	margin-right: 10px;
+}
+
+.modal input {
+	display: block;
+	width: 100%;
+	height: 50px;
+	font-size: 25px;
+	padding: 0 10px;
+	border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+
+.modal input[type=submit] {
+	background: rgba(50, 216, 81, 0.94);
+	box-shadow: 0px 3px 0 rgba(91, 165, 104, 0.94);
+	color: white;
+	border: none;
+}
+
+.modal input[type=submit]:hover,
+.modal input[type=submit]:focus {
+	background-color: rgba(86, 234, 114, 0.94);
+	outline: none;
+}
+
+.modal input[type=submit]:active {
+	box-shadow: 0px 0px 0 rgba(91, 165, 104, 0.94);
+}
+
+.modal .close {
+	position: absolute;
+	right: -45px;
+	top: -10px;
+	background: white;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.overlay {
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.4);
+}
